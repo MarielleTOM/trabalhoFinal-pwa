@@ -32,10 +32,17 @@ window.addEventListener('DOMContentLoaded', async event =>{
 })
 
 async function addData( ) {
+    let nome = document.getElementById('nome').value;
     const tx = await db.transaction('pessoas', 'readwrite');
     const store = tx.objectStore('pessoas');
-    store.dd({nome: 'Fulano'})
-    await tx.done;
+    try{
+        await store.add({nome:nome, foto:foto});
+        await tx.done
+    }catch (error){
+        console.error('Erro ao add registros', error);
+        tx.abort();
+    }
+
 }
 
 async function getData( ) {
