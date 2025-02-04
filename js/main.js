@@ -1,4 +1,4 @@
-// Registrando o Service Worker
+
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', async () => {
         try {
@@ -12,17 +12,17 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// Configurando as restrições do vídeo stream
+
 var constraints = { video: { facingMode: "user" }, audio: false };
 
-// Capturando os elementos em tela
+
 const cameraView = document.querySelector("#camera-view"),
-      cameraOutput = document.querySelector("#camera-output"),
       cameraSensor = document.querySelector("#camera-sensor"),
-      cameraTrigger = document.querySelector("#camera-trigger");
+      cameraTrigger = document.querySelector("#camera-trigger"),
+      cameraOutput = document.querySelector("#camera-output");
       var constraints = { video: { facingMode: "user" }, audio: false };
 
-      // Estabelecendo o acesso à câmera e inicializando a visualização
+ 
       function cameraStart() {
           navigator.mediaDevices
               .getUserMedia(constraints)
@@ -35,7 +35,7 @@ const cameraView = document.querySelector("#camera-view"),
               });
       }
       
-      // Função para tirar foto
+
       cameraTrigger.onclick = function () {
           cameraSensor.width = cameraView.videoWidth;
           cameraSensor.height = cameraView.videoHeight;
@@ -44,6 +44,6 @@ const cameraView = document.querySelector("#camera-view"),
           cameraOutput.classList.add("taken");
       };
       
-      // Carrega a imagem da câmera quando a janela carregar
+      
       window.addEventListener("load", cameraStart, false);
       

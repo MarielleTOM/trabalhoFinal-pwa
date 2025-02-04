@@ -3,41 +3,90 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
+    background-color: #000; /* Fundo preto */
+    color: #fff; /* Texto branco */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Centraliza os elementos verticalmente */
 }
 
-#camera, #camera-view, #camera-sensor, #camera-output {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+#camera {
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo da câmera */
+    align-items: center;
+    flex-direction: column;
+    width: 20vw; 
+    height: 40vh; 
+    background-color: #000; /* Fundo preto para o container da câmera */
+    border: 1px solid #8A2BE2; /* Borda roxa */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
-#camera-view, #camera-sensor, #camera-output {
-    transform: scaleX(-1);
-    filter: FlipH;
+#camera-sensor, #camera-view {
+    width: 100%; /* O vídeo ocupa toda a largura do container */
+    height: 100%; /* O vídeo ocupa toda a altura do container */
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorção */
+    border: 1px solid #8A2BE2; /* Borda roxa */
+    background-color: black;
+}
+
+#camera-output {
+    width: 50%; 
+    max-width: 300px; 
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+    border: 2px solid #8A2BE2; /* Borda roxa */
+}
+
+/* Estilo dos botões */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+#btnSalvar, #btnListar {
+    font-size: 18px;
+    background-color: #8A2BE2; /* Cor roxa */
+    color: white;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+#btnSalvar:hover, #btnListar:hover {
+    background-color: #6a1db5; 
 }
 
 #camera-trigger {
-    width: 200px;
-    background-color: black;
+    background-color: #2196F3; 
     color: white;
-    font-size: 16px;
-    border-radius: 30px;
-    border: none;
-    padding: 15px 20px;
-    text-align: center;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-    position: fixed;
-    bottom: 30px;
-    left: calc(50% - 100px);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
 }
-.taken {
-    height: 100px !important;
-    width: 100px !important;
-    transition: all 0.5s ease-in;
-    border: solid 3px white;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-    top: 20px;
-    right: 20px;
-    z-index: 2;
+
+#camera-trigger:hover {
+    background-color: #1976D2; 
+}
+
+
+div[style="text-align: center;"] {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+output {
+    margin-top: 20px;
+    color: #8A2BE2; 
 }
